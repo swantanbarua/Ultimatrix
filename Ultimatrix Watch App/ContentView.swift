@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+struct RightFacingTriangle: View {
+    var body: some View {
+        GeometryReader { geometry in
+            Path { path in
+                let width = geometry.size.width
+                let height = geometry.size.height
+
+                // Start at top-left corner
+                path.move(to: CGPoint(x: 0, y: 0))
+                // Move to bottom-left corner
+                path.addLine(to: CGPoint(x: 0, y: height))
+                // Move to the right edge (midpoint)
+                path.addLine(to: CGPoint(x: width, y: height / 2))
+                // Close the path
+                path.closeSubpath()
+            }
+            .fill(Color.black) // Fill the triangle with black color
+        }
+        .aspectRatio(1, contentMode: .fit) // Keep it proportional
+    }
+}
+
 struct ContentView: View {
     
     // MARK: - BODY
@@ -38,6 +60,8 @@ struct ContentView: View {
                     .black,
                     lineWidth: 5
                 )
+            
+            RightFacingTriangle()
         }
     }
 }
