@@ -29,6 +29,29 @@ struct RightFacingTriangle: View {
     }
 }
 
+struct LeftFacingTriangle: View {
+    var body: some View {
+        GeometryReader { geometry in
+            Path { path in
+                let width = geometry.size.width
+                let height = geometry.size.height
+
+                // Start at top-right corner
+                path.move(to: CGPoint(x: width, y: 0))
+                // Move to bottom-right corner
+                path.addLine(to: CGPoint(x: width, y: height))
+                // Move to the left edge (midpoint)
+                path.addLine(to: CGPoint(x: 0, y: height / 2))
+                // Close the path
+                path.closeSubpath()
+            }
+            .fill(Color.black) // Fill the triangle with black color
+        }
+        .aspectRatio(1, contentMode: .fit) // Keep it proportional
+    }
+}
+
+
 struct ContentView: View {
     
     // MARK: - BODY
@@ -61,8 +84,13 @@ struct ContentView: View {
                     lineWidth: 5
                 )
             
-            RightFacingTriangle()
-                .frame(width: 60)
+            HStack {
+                RightFacingTriangle()
+                    .frame(width: 70)
+                
+                LeftFacingTriangle()
+                    .frame(width: 70)
+            }
         }
     }
 }
