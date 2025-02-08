@@ -62,7 +62,7 @@ struct ContentView: View {
                 )
             
             RightFacingTriangle()
-                .frame(width: 100)
+                .frame(width: 60)
         }
     }
 }
