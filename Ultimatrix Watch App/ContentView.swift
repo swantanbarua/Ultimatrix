@@ -8,26 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - BODY
     var body: some View {
         ZStack {
             Circle()
                 .stroke(
                     .gray,
-                    lineWidth: 20
+                    lineWidth: 30
                 )
             
             Circle()
                 .fill(.green)
                 .stroke(
                     .black,
-                    lineWidth: 10
+                    lineWidth: 20
                 )
             
             Circle()
                 .fill(.black)
                 .stroke(
                     .green,
-                    lineWidth: 1
+                    lineWidth: 10
+                )
+            
+            Circle()
+                .fill(.green)
+                .stroke(
+                    .black,
+                    lineWidth: 5
                 )
         }
     }
