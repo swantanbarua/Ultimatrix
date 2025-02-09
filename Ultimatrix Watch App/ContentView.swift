@@ -51,7 +51,6 @@ struct LeftFacingTriangle: View {
     }
 }
 
-
 struct ContentView: View {
     
     // MARK: - BODY
@@ -87,9 +86,11 @@ struct ContentView: View {
             HStack {
                 RightFacingTriangle()
                     .frame(width: 70)
+                    .clipShape(Circle())
                 
                 LeftFacingTriangle()
                     .frame(width: 70)
+                    .clipShape(Circle())
             }
         }
     }
